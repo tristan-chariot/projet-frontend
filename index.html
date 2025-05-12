@@ -60,7 +60,6 @@
             return [r, g, b]
             }
 
-
             const adresse = document.querySelector("#adresse").value;
             const carte = document.querySelector("#map").value;
             const couleur = document.querySelector("#couleur").value;
@@ -125,7 +124,7 @@
                 const { deltas } = await res.json();
                 for ([x, y, r, g, b] of deltas) {
                     console.log("delta", [x, y, r, g, b]);
-                    const pixel = document.querySelector(`#l${y}_c${x}`);
+                    const pixel = document.querySelector(`#l${x}_c${y}`);
                     pixel.style.backgroundColor = `rgb(${r},${g},${b})`;
                     }
                 }
