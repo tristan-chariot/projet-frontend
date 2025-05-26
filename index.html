@@ -1,276 +1,53 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pixel Wars</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-        rel="stylesheet">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Pixel Wars</title>
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="pixels-war.css">
+    </head>
 
-    <style>
-        .container {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 4px;
-        }
-
-        body {
-            font-family: 'Press Start 2P', cursive;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            background-color: #f4f4f4;
-        }
-
-        h1 {
-            font-family: "PT Serif", serif;
-            font-size: 5em;
-            margin: 0.25em 0;
-            color: #3d0082;
-        }
-
-        h2 {
-            font-family: "PT Serif", serif;
-            font-size: 2em;
-            color: rgb(140, 20, 20);
-            margin-top: 0;
-        }
-
-        h3 {
-            font-size: 1.2em;
-            color: #d27305;
-            margin-top: 0;
-        }
-
-
-        #description-carte {
-            font-size: 1.5em;
-            color: #3d0082;
-            margin-top: 10px;
-        }
-
-        .choix-couleur {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background-color: #fff;
-            border: 2px solid #3d0082;
-            padding: 10px;
-            border-radius: 10px;
-            font-size: 1em;
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-
-        .choix-couleur label {
-            margin-right: 5px;
-            color: #3d0082;
-        }
-
-        .map {
-            width: 80vmin;
-            aspect-ratio: 1 / 1;
-            display: grid;
-            grid-template-columns: repeat(var(--colonnes), 1fr);
-            grid-template-rows: repeat(var(--lignes), 1fr);
-        }
-
-        .pixel {
-            width: 100%;
-            height: 100%;
-            border: 1px solid black;
-        }
-
-        .mention-legale {
-            align-self: flex-start;
-            margin: 40px 0 20px 20px;
-            font-size: 0.5em;
-            color: rgb(38, 38, 38);
-        }
-
-        .reseaux-sociaux {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: rgba(44, 44, 44, 0.8);
-            padding: 10px;
-            border-radius: 10px;
-            text-align: center;
-            z-index: 10;
-        }
-
-        .reseaux-sociaux span {
-            color: white;
-            font-size: 0.8em;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .reseaux-sociaux a {
-            text-decoration: none;
-        }
-
-        .logo-reseaux-sociaux {
-            width: 34px;
-            height: 34px;
-            margin: 0 5px;
-            transition: transform 0.3s ease;
-        }
-
-        .logo-reseaux-sociaux:hover {
-            transform: scale(1.2);
-        }
-    </style>
-</head>
-
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>Pixel War</h1>
-            <h2>Rejoignez la bataille et conquériez le monde pixel par pixel !</h2>
-            <h3 id="map-description">Bienvenue sur la carte !</h3>
-
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>Pixel War</h1>
+                <h2>Rejoignez la bataille et conquériez le monde pixel par pixel !</h2>
+                <h3 id="map-description">Bienvenue sur la carte !</h3>
+            </div>
+            <div class="map" id="mapcontainer">
+                <div class="pixel"></div>
+                <div class="pixel"></div>
+                <div class="pixel"></div>
+                <div class="pixel"></div>
+                <div class="pixel"></div>
+                <div class="pixel"></div>
+                <div class="pixel"></div>
+                <div class="pixel"></div>
+                <div class="pixel"></div>
+            </div>
+            <div class="choix-couleur">
+                <label>Couleur sélectionnée :</label>
+                <input type="color" name="couleur" id="couleur" value="#0000FF">
+            </div>
+            <div class="reseaux-sociaux">
+                <span>Suivez-nous sur les réseaux</span>
+                <a href="https://facebook.com" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+                        class="logo-reseaux-sociaux">
+                </a>
+                <a href="https://instagram.com" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+                        class="logo-reseaux-sociaux">
+                </a>
+            </div>
+            <div class="mention-legale">
+                @ Pixel War. Tous droits réservés aux membres du cours d'informatique sur le développement web.
+            </div>
         </div>
-        <div class="map" id="mapcontainer">
-            <div class="pixel"></div>
-            <div class="pixel"></div>
-            <div class="pixel"></div>
-            <div class="pixel"></div>
-            <div class="pixel"></div>
-            <div class="pixel"></div>
-            <div class="pixel"></div>
-            <div class="pixel"></div>
-            <div class="pixel"></div>
-        </div>
-        <div class="choix-couleur">
-            <label>Couleur sélectionnée :</label>
-            <input type="color" name="couleur" id="couleur" value="#0000FF">
-        </div>
-        <div class="reseaux-sociaux">
-            <span>Suivez-nous sur les réseaux</span>
-            <a href="https://facebook.com" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
-                    class="logo-reseaux-sociaux">
-            </a>
-            <a href="https://instagram.com" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
-                    class="logo-reseaux-sociaux">
-            </a>
-        </div>
-        <input type="text" name="adresse" id="adresse" value="https://pixels-war.oie-lab.net">
-        <input type="text" name="map" id="map" , value="0000">
-        <div class="mention-legale">
-            @ Pixel War. Tous droits réservés aux membres du cours sur le développement web.
-        </div>
-
-
-
-
-
-
-
-        <script>
-            function getPickedColorInRGB() {
-                const colorHexa = document.getElementById("couleur").value
-
-                const r = parseInt(colorHexa.substring(1, 3), 16)
-                const g = parseInt(colorHexa.substring(3, 5), 16)
-                const b = parseInt(colorHexa.substring(5, 7), 16)
-
-                return [r, g, b]
-            }
-
-            const adresse = document.querySelector("#adresse").value;
-            const carte = document.querySelector("#map").value;
-            const couleur = document.querySelector("#couleur").value;
-            console.log({ adresse, carte, couleur })
-
-            const mapElement = document.querySelector("#mapcontainer")
-
-            async function preinit() {
-                const res = await fetch(`${adresse}/api/v1/${carte}/preinit`, { credentials: "include" });
-                const { key } = await res.json();
-                init(key)
-            }
-
-
-            async function init(key) {
-                const res = await fetch(`${adresse}/api/v1/${carte}/init?key=${key}`, { credentials: "include" });
-                const { id, nx, ny, timeout, data } = await res.json()
-
-                let contenu = "";
-                for (let col = 0; col < nx; col++) {
-                    for (let li = 0; li < ny; li++) {
-                        const [r, g, b] = data[li][col];
-                        contenu += `<div class="pixel" id="l${li}_c${col}" style="background-color: rgb(${r}, ${g}, ${b})"></div>`;
-                    }
-
-                    mapElement.innerHTML = contenu;
-                    mapElement.style.setProperty('--colonnes', nx);
-                    mapElement.style.setProperty('--lignes', ny);
-
-                    console.log(contenu);
-
-                    setInterval(() => deltas(id), 1000);
-
-
-                    document.querySelectorAll(".pixel").forEach(pixel => {
-                        pixel.addEventListener("click", async (click) => {
-                            const idPixel = click.target.id;
-                            const posPixel = idPixel.match(/l(\d+)_c(\d+)/)
-                            const li = posPixel[1]
-                            const col = posPixel[2]
-                            const [r, g, b] = getPickedColorInRGB()
-                            const res = await fetch(`${adresse}/api/v1/${carte}/set/${id}/${li}/${col}/${r}/${g}/${b}`, { credentials: "include" })
-                            const resultat = await res.json();
-
-                            if (resultat == 0) {
-                                deltas(id);
-                            }
-                            else {
-                                const tempsattente = Math.round(resultat / 10 ** 9);
-                                alert(`Vous devez patienter ${tempsattente} secondes avant de pouvoir changer la couleur d'un pixel.`);
-                            }
-                        })
-                    })
-                }
-
-
-            }
-
-            async function deltas(id) {
-                const res = await fetch(`${adresse}/api/v1/${carte}/deltas?id=${id}`, { credentials: "include" })
-                const { deltas } = await res.json();
-                for ([x, y, r, g, b] of deltas) {
-                    console.log("delta", [x, y, r, g, b]);
-                    const pixel = document.querySelector(`#l${x}_c${y}`);
-                    pixel.style.backgroundColor = `rgb(${r},${g},${b})`;
-                }
-            }
-
-
-            document.addEventListener("DOMContentLoaded", () => {
-                const carte = document.querySelector("#map").value;
-                const description = document.querySelector("#description-carte");
-                description.textContent = `Bienvenue sur la carte ${carte} !`;
-            });
-
-
-
-            preinit()
-
-
-            const description = document.querySelector("#map-description");
-            description.textContent = `Bienvenue sur la carte ${carte} !`;
-
-
-        </script>
-</body>
+        <script src="pixels-war.js"></script>
+    </body>
 
 </html>
